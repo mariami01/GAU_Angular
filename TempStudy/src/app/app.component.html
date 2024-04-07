@@ -1,0 +1,37 @@
+<div *ngIf="courses.length > 0; then listOfCourses else noCourses">
+</div>
+<ng-template #listOfCourses>
+  <h2>List of courses</h2>
+  <ul>
+    <li *ngFor="let course of courses">{{course}}</li>
+  </ul>
+</ng-template>
+<ng-template #noCourses>
+  No courses in the list.
+</ng-template>
+
+
+<!-- VIEW MODE -->
+<h1>View modes</h1>
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'">Map View</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'">List View</a></li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view content. This appeared because you click map view. </div>
+  <div *ngSwitchCase="'list'">List view content. This appeared because you click list view.</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<!-- Courses List -->
+
+<h1>List of courses</h1>
+
+<button (click)="onAdd()">Add</button>
+<ul>
+  <li *ngFor="let updatedCourse of updatedCourses; index as i">
+    {{i}} - {{updatedCourse.name}}
+    <button (click)="onRemove(updatedCourse)">Remove</button>
+  </li>
+</ul>

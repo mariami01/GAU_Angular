@@ -1,0 +1,18 @@
+<form [formGroup]="myForm" (ngSubmit)="formSubmit()">
+
+    <label for="">FullName</label>
+    <input type="text" formControlName="FullName">
+
+    <div *ngIf="f['FullName'].errors">Full Name is required!</div>
+
+    <label for="">Username</label>
+    <input type="text" formControlName="Username">
+
+    <label for="">Email</label>
+    <input type="text" formControlName="Email">
+
+    <input type="checkbox" formControlName="AcceptTerms">
+    <label for="">I have read the terms</label>
+
+    <button type="submit">Submit</button>
+</form>

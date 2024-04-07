@@ -1,0 +1,16 @@
+<form #myForm="ngForm" (ngSubmit)="SaveInput(myForm)">
+
+    <label for="">First Name</label>
+    <input type="text" name="firstname" ngModel required>
+    <label for="">Last Name</label>
+    <input type="text" name="lastname" ngModel required>
+    <label for="">Age</label>
+    <input type="number" name="age" ngModel required #myAge="ngModel" min="18">
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+
+
+    <div style="color: red;" *ngIf="!myAge.valid">
+        <p *ngIf="myAge.errors?.['min']">min Age is 18</p>
+        <p *ngIf="myAge.errors?.['required']">Age is required</p>
+    </div>
+</form>
