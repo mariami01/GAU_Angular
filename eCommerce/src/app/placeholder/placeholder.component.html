@@ -1,0 +1,18 @@
+<p>placeholder works!</p>
+
+<div *ngFor="let product of products">
+    <h3>{{ product.name }}</h3>
+    <p>Size: {{ product.size }}</p>
+    <p>Color: {{ product.color }}</p>
+    <p>Material: {{ product.material }}</p>
+    <p>Seller: {{ product.seller }}</p>
+    <p>Price: {{ product.price }}</p>
+    <p>Quantity: {{ product.quantity }}</p>
+</div>
+
+<div>
+
+    <hr>
+    <p>Total Subtotal: ${{ subtotal }}</p>
+</div>
+<router-outlet></router-outlet>

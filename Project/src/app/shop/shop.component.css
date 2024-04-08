@@ -1,0 +1,12 @@
+.card {
+    display:inline-block;
+    margin: 10px;
+}
+
+.newBox {
+    color: red;
+}
+
+.discount-info{
+    color: orange;
+}

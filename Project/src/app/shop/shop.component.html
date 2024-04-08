@@ -1,0 +1,18 @@
+<div>
+
+    <div class="card mt-20" style="width: 18rem;" *ngFor="let product of products">
+        <img alt="Product Image" class="card-img-top" [src]='product.imageName'>
+        <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">{{product.description}}</p>
+            <p class="card-text font-weight-bold">$ {{product.price}}</p>
+            <p *ngIf="product.discount > 0" class="discount-info">Discount: {{product.discountPercentage}}%</p>
+            <p *ngIf="product.discount > 0" class="discounted-price">Discounted Price: $ {{
+                productService.calculateDiscountedPrice(product) }}</p>
+            <p *ngIf="product.isNew" class="newBox">New</p>
+            <button (click)="addToCart(product)">Add to cart</button>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>
