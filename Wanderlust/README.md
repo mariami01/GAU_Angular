@@ -1,6 +1,6 @@
 # WanderLust
 
-This is travel website, where you can choose your next destination, book apartments and plan trips. 
+This is a travel website, where you can choose your next destination, book apartments and plan trips. 
 
 ## Development server
 
