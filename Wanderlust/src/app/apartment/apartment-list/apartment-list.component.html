@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;" *ngFor="let apartment of apartments">
+    <img class="card-img-top" [src]='apartment.photo' alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{ apartment.name }}</h5>
+        <p class="card-text">⭐ {{ apartment.stars }} | ({{apartment.reviews}} Reviews)</p>
+        <p class="card-text">{{ apartment.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ apartment.pricePerNight }}$/Night</small></p>
+        <button class="btn btn-primary">Book!</button>
+    </div>
+</div>
