@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+}
+.filterRecommended{
+    width: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card{
+    margin-bottom: 20px;
+}
+.main-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .filter-option {
+    border-radius: 10px;
+    background-color: lightgrey;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .filter-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .filter-content input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+.list-group{
+  margin-bottom: 15px;
+}

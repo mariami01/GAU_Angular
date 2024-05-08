@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApartmentListComponent } from './apartment-list/apartment-list.component';
 import { Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgModel } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'Apartments', component: ApartmentListComponent }
@@ -13,7 +16,8 @@ const routes: Routes = [
     ApartmentListComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ApartmentListComponent

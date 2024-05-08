@@ -1,10 +1,99 @@
-<div class="card" style="width: 18rem;" *ngFor="let apartment of apartments">
-    <img class="card-img-top" [src]='apartment.photo' alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{ apartment.name }}</h5>
-        <p class="card-text">⭐ {{ apartment.stars }} | ({{apartment.reviews}} Reviews)</p>
-        <p class="card-text">{{ apartment.description }}</p>
-        <p class="card-text"><small class="text-muted">{{ apartment.pricePerNight }}$/Night</small></p>
-        <button class="btn btn-primary">Book!</button>
+<div class="container">
+    <div class="sidebar">
+        <!-- search property name -->
+        <div class="filter-option">
+            <div class="filter-header">Search by Property Name</div>
+            <div class="filter-content">
+                <input type="text" placeholder="Enter property name" [(ngModel)]="propertyNameSearchTerm"
+                    (input)="filterApartmentsByPropertyName()">
+            </div>
+        </div>
+
+        <!-- filter budget by day -->
+        <div
+            style="background-color: lightgrey; border-top-left-radius: 8px;border-top-right-radius: 8px; padding: 5px;">
+            Your Budget Per Day</div>
+        <div class="list-group">
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="200" [(ngModel)]="checked200"
+                    (change)="filterApartmentsByBudgetPerDay()">
+                $0 - $200
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="500" [(ngModel)]="checked500"
+                    (change)="filterApartmentsByBudgetPerDay()">
+                $200 - $500
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="1000" [(ngModel)]="checked1000"
+                    (change)="filterApartmentsByBudgetPerDay()">
+                $500 - $1,000
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="2000" [(ngModel)]="checked2000"
+                    (change)="filterApartmentsByBudgetPerDay()">
+                $1,000 - $2,000
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" value="5000" [(ngModel)]="checked5000"
+                    (change)="filterApartmentsByBudgetPerDay()">
+                $2,000 - $5,000
+            </label>
+        </div>
+
+        <!-- popular filters -->
+        <div
+            style="background-color: lightgrey; border-top-left-radius: 8px;border-top-right-radius: 8px; padding: 5px;">
+            Popular Filters</div>
+        <div class="list-group">
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="checkedPool"
+                    (change)="filterApartmentsByFeatures()">
+                Pool
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="checkedFreeWiFi"
+                    (change)="filterApartmentsByFeatures()">
+                Free WiFi
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="checkedParking"
+                    (change)="filterApartmentsByFeatures()">
+                Parking
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="checkedBusinessServices"
+                    (change)="filterApartmentsByFeatures()">
+                Business Services
+            </label>
+            <label class="list-group-item">
+                <input class="form-check-input me-1" type="checkbox" [(ngModel)]="checkedPetFriendly"
+                    (change)="filterApartmentsByFeatures()">
+                Pet Friendly
+            </label>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Recommended Filter -->
+        <h3>{{apartmentCount}} Search Result Apartments Found ✨</h3>
+        <div class="filterRecommended">
+            <select class="form-select" [(ngModel)]="selectedSortOption"
+                (change)="filterApartmentsByPrice(selectedSortOption)">
+                <option *ngFor="let option of sortOptions">{{ option }}</option>
+            </select>
+        </div>
+
+        <!--  CARD  -->
+        <div class="card" style="width: 25rem;" *ngFor="let apartment of filteredApartments">
+            <img class="card-img-top" [src]='apartment.photo' alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ apartment.name }}</h5>
+                <p class="card-text">⭐ {{ apartment.stars }} | ({{apartment.reviews}} Reviews)</p>
+                <p class="card-text">{{ apartment.description }}</p>
+                <p class="card-text"><small class="text-muted">{{ apartment.pricePerNight }}$/Night</small></p>
+                <button class="btn btn-primary">Book!</button>
+            </div>
+        </div>
     </div>
 </div>
