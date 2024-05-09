@@ -1,14 +1,17 @@
 <!-- search bar -->
-<form class="search-form">
+<form class="search-form" (ngSubmit)="search()">
     <div class="row">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Location, ex: Tbilisi">
+            <input type="text" class="form-control" id="location" name="location" [(ngModel)]="location"
+                placeholder="Location, ex: Tbilisi">
         </div>
         <div class="col">
-            <input type="date" class="form-control" placeholder="">
+            <input type="date" class="form-control" id="startDate" name="startDate" [ngModel]="startDate"
+                (ngModelChange)="startDate = $event" [placeholder]="startDatePlaceholder" [min]="getToday()">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Last name">
+            <input type="date" class="form-control" id="endDate" name="endDate" [ngModel]="endDate"
+                (ngModelChange)="endDate = $event" [placeholder]="endDatePlaceholder" [min]="getTodayStartDate()">
         </div>
         <button class="btn btn-primary" type="submit" style="width: 100px;">Search</button>
     </div>

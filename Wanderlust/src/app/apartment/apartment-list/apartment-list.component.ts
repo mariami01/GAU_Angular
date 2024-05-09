@@ -27,6 +27,11 @@ export class ApartmentListComponent implements OnInit {
   checkedBusinessServices: boolean = false;
   checkedPetFriendly: boolean = false;
 
+  location: string = ''
+  startDate: string = ''
+  endDate: string = ''
+  startDatePlaceholder: string = 'Start Date';
+  endDatePlaceholder: string = 'End Date';
   constructor(private apartmentService: ApartmentService) { }
 
   ngOnInit(): void {
@@ -57,7 +62,7 @@ export class ApartmentListComponent implements OnInit {
     this.filteredApartments = this.apartments.filter(apartment =>
       apartment.name.toLowerCase().includes(this.propertyNameSearchTerm.toLowerCase())
     );
-    this.updateApartmentCount(); // Update count after filtering
+    this.updateApartmentCount();
   }
   filterApartmentsByBudgetPerDay(): void {
     this.budgetPerDay = [];
@@ -85,5 +90,30 @@ export class ApartmentListComponent implements OnInit {
       selectedFeatures.every(feature => apartment.features.includes(feature))
     );
     this.updateApartmentCount();
+  }
+
+  search(): void {
+    const location = (document.getElementById('location') as HTMLInputElement).value;
+    console.log('Location:', location);
+    console.log('Start Date:', this.startDate);
+    console.log('End Date:', this.endDate);
+
+    const startDate = new Date(this.startDate);
+    const endDate = new Date(this.endDate);
+
+    this.filteredApartments = this.apartments.filter(apartment =>
+      apartment.city.toLowerCase() === this.location.toLowerCase() &&
+      apartment.bookedDates.every(bookedDate => {
+        const date = new Date(bookedDate);
+        return date < startDate || date > endDate;
+      })
+    );
+    this.updateApartmentCount();
+  }
+  getToday(): string {
+    return new Date().toISOString().split('T')[0];
+  }
+  getTodayStartDate(): string {
+    return this.startDate;
   }
 }
