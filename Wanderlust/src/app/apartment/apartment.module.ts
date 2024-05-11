@@ -1,26 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApartmentListComponent } from './apartment-list/apartment-list.component';
-import { Routes } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-import { NgModel } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-
-const routes: Routes = [
-  { path: 'Apartments', component: ApartmentListComponent }
-]
-
+import { ApartmentDetailComponent } from './apartment-detail/apartment-detail.component';
 
 @NgModule({
   declarations: [
-    ApartmentListComponent
+    ApartmentListComponent,
+    ApartmentDetailComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
   ],
   exports: [
-    ApartmentListComponent
+    ApartmentListComponent,
+    ApartmentDetailComponent,
   ]
 })
 export class ApartmentModule { }

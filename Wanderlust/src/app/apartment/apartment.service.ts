@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApartmentService {
+  apartments: Apartment[] = [];
 
   constructor() { }
-
   getApartments(): Apartment[] {
     return [
       {

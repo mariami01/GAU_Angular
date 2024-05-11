@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apartment, ApartmentService } from '../apartment.service';
+import { Router } from '@angular/router';
+import { log } from 'console';
 
 @Component({
   selector: 'app-apartment-list',
@@ -32,7 +34,7 @@ export class ApartmentListComponent implements OnInit {
   endDate: string = ''
   startDatePlaceholder: string = 'Start Date';
   endDatePlaceholder: string = 'End Date';
-  constructor(private apartmentService: ApartmentService) { }
+  constructor(private apartmentService: ApartmentService, private router: Router) { }
 
   ngOnInit(): void {
     this.getApartments();
@@ -40,7 +42,6 @@ export class ApartmentListComponent implements OnInit {
 
   getApartments(): void {
     this.apartments = this.apartmentService.getApartments();
-    // Initially, display all apartments
     this.filteredApartments = [...this.apartments];
     this.updateApartmentCount();
   }
@@ -115,5 +116,11 @@ export class ApartmentListComponent implements OnInit {
   }
   getTodayStartDate(): string {
     return this.startDate;
+  }
+
+  seeAvailability(apartment: Apartment): void {
+    console.log('apartment', apartment);
+    const apartmentId = apartment.id
+    this.router.navigate([`Apartments/${apartmentId}`, { apartment: apartment }])
   }
 }
