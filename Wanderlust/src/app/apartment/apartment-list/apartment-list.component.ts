@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apartment, ApartmentService } from '../apartment.service';
 import { Router } from '@angular/router';
-import { log } from 'console';
 
 @Component({
   selector: 'app-apartment-list',
@@ -118,9 +117,9 @@ export class ApartmentListComponent implements OnInit {
     return this.startDate;
   }
 
-  seeAvailability(apartment: Apartment): void {
-    console.log('apartment', apartment);
-    const apartmentId = apartment.id
-    this.router.navigate([`Apartments/${apartmentId}`, { apartment: apartment }])
+  seeAvailability(apartmentId: number): void {
+    console.log('id', apartmentId);
+
+    this.router.navigate(['Apartments/', apartmentId])
   }
 }
