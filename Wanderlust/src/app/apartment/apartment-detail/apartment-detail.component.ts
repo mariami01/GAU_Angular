@@ -16,25 +16,16 @@ export class ApartmentDetailComponent {
         private route: ActivatedRoute,
         private apartmentService: ApartmentService
     ) { }
-
-
     getApartmentIdFromUrl() {
         this.route.paramMap.subscribe(params => {
             this.id = params.get('id');
         });
     }
-
     ngOnInit(): void {
         this.route.paramMap.subscribe(params => {
             this.id = params.get('id');
         });
-        console.log('this idd', this.id);
-
+        // console.log('this idd', this.id);
         this.apartmentDetailed = this.apartmentService.getApartmentsById(this.id);
-
     }
-
-
-
-
 }

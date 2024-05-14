@@ -1,7 +1,18 @@
-<div class="main" *ngIf="apartmentDetailed">
-    <!-- <img src="apartment" alt=""> -->
-    <p>{{apartmentDetailed.name}}</p>
-    <p>{{apartmentDetailed.city}}</p>
-    <p>{{apartmentDetailed.address}}</p>
-
+<div *ngIf="apartmentDetailed">
+    <img src={{apartmentDetailed.photo}} alt="" class="detail-img">
+    <div class="main">
+        <h2 class="card-title">{{apartmentDetailed.name}}</h2>
+        <h6 class="card-subtitle mb-2 text-muted">⭐ {{apartmentDetailed.stars}} | {{apartmentDetailed.reviews}} Reviews
+        </h6>
+        <h6 class="card-text text-muted">{{apartmentDetailed.address}}, {{apartmentDetailed.city}},
+            {{apartmentDetailed.country}}</h6>
+        <h5 class="h5-style">Overview</h5>
+        <p class="card-text">{{apartmentDetailed.description}}</p>
+        <hr>
+        <h5 class="h5-style">Top Facilities</h5>
+        <ul>
+            <li *ngFor="let feature of apartmentDetailed.features">{{ feature }}</li>
+        </ul>
+        <button class="btn btn-primary" type="submit">Reserve Apartment!</button>
+    </div>
 </div>
