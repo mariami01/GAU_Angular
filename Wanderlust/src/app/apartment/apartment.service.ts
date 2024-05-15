@@ -155,7 +155,7 @@ export class ApartmentService {
 
   getApartmentsById(id: string | number | null | undefined): Apartment | undefined {
     let found = this.apartments.find((element) => element.id == id);
-    console.log('found apartmentebiii: ', found);
+    // console.log('found apartmentebiii: ', found);
     return found;
   }
 }

@@ -13,6 +13,6 @@
         <ul>
             <li *ngFor="let feature of apartmentDetailed.features">{{ feature }}</li>
         </ul>
-        <button class="btn btn-primary" type="submit">Reserve Apartment!</button>
+        <button class="btn btn-primary" type="submit" (click)="reserveApartment()">Reserve Apartment!</button>
     </div>
 </div>

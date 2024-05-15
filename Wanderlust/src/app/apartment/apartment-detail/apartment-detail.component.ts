@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Apartment, ApartmentService } from '../apartment.service';
-import { ApartmentListComponent } from '../apartment-list/apartment-list.component';
-import { log } from 'console';
+import { CartService } from '../../cart/cart.service';
+
 @Component({
     selector: 'app-apartment-detail',
     templateUrl: './apartment-detail.component.html',
@@ -14,7 +14,8 @@ export class ApartmentDetailComponent {
 
     constructor(
         private route: ActivatedRoute,
-        private apartmentService: ApartmentService
+        private apartmentService: ApartmentService,
+        private cartService: CartService
     ) { }
     getApartmentIdFromUrl() {
         this.route.paramMap.subscribe(params => {
@@ -28,4 +29,11 @@ export class ApartmentDetailComponent {
         // console.log('this idd', this.id);
         this.apartmentDetailed = this.apartmentService.getApartmentsById(this.id);
     }
+    reserveApartment(){
+        if(this.apartmentDetailed){
+            this.cartService.addToCart(this.apartmentDetailed)
+            alert('Apartment added to cart!');
+        }   
+    }
+
 }
