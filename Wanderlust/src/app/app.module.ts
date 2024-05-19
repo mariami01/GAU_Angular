@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from './home/home.module';
 import { ApartmentModule } from "./apartment/apartment.module";
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { ApartmentModule } from "./apartment/apartment.module";
         SharedModule,
         BrowserModule,
         AppRoutingModule,
+        CartModule,
         NgbModule,
         ApartmentModule
     ]
