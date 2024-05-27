@@ -5,18 +5,20 @@ import { Apartment } from '../apartment/apartment.service';
   providedIn: 'root'
 })
 export class CartService {
-  private cart: Apartment[] = []
+  private items: Apartment[] = [];
 
-  getCart(): Apartment[]{
-    return this.cart
-  }
-
-  addToCart(apartment: Apartment): void{
-    this.cart.push(apartment)
-  }
-  clearCart(): void{
-    this.cart = []
-  }
-  
   constructor() { }
+
+  addToCart(apartment: Apartment): void {
+    this.items.push(apartment);
+  }
+
+  getItems(): Apartment[] {
+    return this.items;
+  }
+
+  clearCart(): void {
+    this.items = [];
+  }
+
 }

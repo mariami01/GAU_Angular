@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from './home/home.module';
 import { ApartmentModule } from "./apartment/apartment.module";
 import { CartModule } from './cart/cart.module';
+import { ApartmentService } from './apartment/apartment.service';
+import { CartService } from './cart/cart.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -15,7 +18,9 @@ import { CartModule } from './cart/cart.module';
     ],
     providers: [
         provideClientHydration(),
-        provideAnimationsAsync()
+        provideAnimationsAsync(),
+        ApartmentService,
+        CartService
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -25,7 +30,8 @@ import { CartModule } from './cart/cart.module';
         AppRoutingModule,
         CartModule,
         NgbModule,
-        ApartmentModule
+        ApartmentModule,
+        ReactiveFormsModule
     ]
 })
 export class AppModule { }

@@ -1,6 +1,11 @@
-<div class="card main" style="width: 18rem;" *ngIf="">
-    <img class="card-img-top" alt="Card image cap">
+<div class="card" style="width: 18rem;" *ngFor="let item of items">
+    <!-- <div  *ngFor="let apartment of cart"> -->
+    <img class="card-img-top" [src]="item.photo" alt="apartment img">
     <div class="card-body">
-        <p class="card-text">h</p>
+        <h5 class="card-title">{{ item.name }}</h5>
+        <p class="card-text">⭐ {{ item.stars }} | {{ item.reviews }} Reviews</p>
+        <p class="card-text">Price per night: ${{ item.pricePerNight}}</p>
+        <!-- <p class="card-text">Booking for dates: {{item.startDate}} - {{item.endDate}}</p> -->
+        <!-- </div> -->
     </div>
 </div>

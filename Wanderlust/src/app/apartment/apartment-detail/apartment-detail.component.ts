@@ -29,11 +29,10 @@ export class ApartmentDetailComponent {
         // console.log('this idd', this.id);
         this.apartmentDetailed = this.apartmentService.getApartmentsById(this.id);
     }
-    reserveApartment(){
-        if(this.apartmentDetailed){
+    reserveApartment() {
+        if (this.apartmentDetailed) {
             this.cartService.addToCart(this.apartmentDetailed)
             alert('Apartment added to cart!');
-        }   
+        }
     }
-
 }

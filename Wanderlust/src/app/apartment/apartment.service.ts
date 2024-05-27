@@ -158,6 +158,22 @@ export class ApartmentService {
     // console.log('found apartmentebiii: ', found);
     return found;
   }
+
+
+  getApartmentsByCountry(): { country: string, count: number }[] {
+    const countryCountMap: { [key: string]: number } = {};
+
+    this.apartments.forEach(apartment => {
+      countryCountMap[apartment.country] = (countryCountMap[apartment.country] || 0) + 1;
+    });
+
+    const countryCountArray = Object.keys(countryCountMap).map(country => ({
+      country,
+      count: countryCountMap[country]
+    }));
+
+    return countryCountArray.sort((a, b) => b.count - a.count).slice(0, 4);
+  }
 }
 
 export interface Apartment {
