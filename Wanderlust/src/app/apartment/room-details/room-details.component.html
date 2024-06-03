@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;" *ngIf="roomDetails">
+    <div class="card-header" style="background-color: rgb(47, 149, 232); color: white;">
+        Room Details
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Booking Room Details ID: {{ roomDetails.bookingRoomDetailsId }}</li>
+        <li class="list-group-item">Booking ID: {{ roomDetails.bookingId }}</li>
+        <li class="list-group-item">Room Type ID: {{ roomDetails.roomTypeId }}</li>
+        <li class="list-group-item">Room Quantity: {{ roomDetails.roomQuantity }}</li>
+        <li class="list-group-item">Date: {{ roomDetails.date }}</li>
+        <li class="list-group-item">Room Price: {{ roomDetails.roomPrice }}</li>
+    </ul>
+</div>
+<div *ngIf="!roomDetails">
+    <p>No room details available.</p>
+</div>

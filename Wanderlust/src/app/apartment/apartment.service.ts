@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -147,11 +149,16 @@ export class ApartmentService {
     }
   ];
 
+  private apiUrl = 'https://ketiketelauri123-001-site1.jtempurl.com/api/bookingRoomDetails/get/1';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
   getApartments(): Apartment[] {
     return this.apartments
   }
+  getRoomDetails(): Observable<any> {
+    return this.http.get(this.apiUrl);
+  }
+
 
   getApartmentsById(id: string | number | null | undefined): Apartment | undefined {
     let found = this.apartments.find((element) => element.id == id);

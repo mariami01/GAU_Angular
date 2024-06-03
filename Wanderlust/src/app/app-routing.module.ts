@@ -4,6 +4,8 @@ import { ApartmentListComponent } from './apartment/apartment-list/apartment-lis
 import { ApartmentDetailComponent } from './apartment/apartment-detail/apartment-detail.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { HomeComponent } from './home/home/home.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
   { path: 'Discover', component: HomeComponent },
@@ -11,6 +13,8 @@ const routes: Routes = [
   { path: 'Apartments', component: ApartmentListComponent },
   { path: 'Apartments/:id', component: ApartmentDetailComponent },
   { path: 'Cart', component: CartComponent },
+  { path: 'Login', component: LoginComponent },
+  { path: 'Register', component: RegisterComponent },
 ];
 
 @NgModule({
